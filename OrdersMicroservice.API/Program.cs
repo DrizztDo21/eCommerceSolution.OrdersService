@@ -45,8 +45,7 @@ builder.Services.AddHttpClient<UsersMicroserviceClient>(client =>
 builder.Services.AddHttpClient<ProductsMicroserviceClient>(client =>
 {
     client.BaseAddress = new Uri($"http://{builder.Configuration["ProductsMicroserviceName"]}:{builder.Configuration["ProductsMicroservicePort"]}");
-}).AddPolicyHandler(builder.Services.BuildServiceProvider().GetRequiredService<IProductsMicroservicePolicies>().GetFallBackPolicy())
-    .AddPolicyHandler(builder.Services.BuildServiceProvider().GetRequiredService<IProductsMicroservicePolicies>().GetBulkHeadIsolationPolicy());
+}).AddPolicyHandler(builder.Services.BuildServiceProvider().GetRequiredService<IProductsMicroservicePolicies>().GetCombinedPolicy());
 
 var app = builder.Build();
 
