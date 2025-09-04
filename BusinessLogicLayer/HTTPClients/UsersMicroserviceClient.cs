@@ -36,7 +36,7 @@ public class UsersMicroserviceClient
             }
 
             //If not in cache, call the microservice
-            HttpResponseMessage response = await _httpClient.GetAsync($"/api/users/{userId}");
+            HttpResponseMessage response = await _httpClient.GetAsync($"/gateway/users/{userId}");
 
             //Handle non-success status codes
             if (!response.IsSuccessStatusCode)
