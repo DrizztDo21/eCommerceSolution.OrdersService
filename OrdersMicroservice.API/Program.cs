@@ -38,13 +38,13 @@ builder.Services.AddTransient<IProductsMicroservicePolicies, ProductsMicroservic
 //Add users microservice HTTP client
 builder.Services.AddHttpClient<UsersMicroserviceClient>(client =>
 {
-    client.BaseAddress = new Uri($"http://{builder.Configuration["UsersMicroserviceName"]}:{builder.Configuration["UsersMicroservicePort"]}");
+    client.BaseAddress = new Uri($"http://{builder.Configuration["UsersMicroServiceName"]}:{builder.Configuration["UsersMicroServicePort"]}");
 }).AddPolicyHandler(builder.Services.BuildServiceProvider().GetRequiredService<IUsersMicroservicePolicies>().GetCombinedPolicy());
 
 //Add products microservice HTTP client
 builder.Services.AddHttpClient<ProductsMicroserviceClient>(client =>
 {
-    client.BaseAddress = new Uri($"http://{builder.Configuration["ProductsMicroserviceName"]}:{builder.Configuration["ProductsMicroservicePort"]}");
+    client.BaseAddress = new Uri($"http://{builder.Configuration["ProductsMicroServiceName"]}:{builder.Configuration["ProductsMicroServicePort"]}");
 }).AddPolicyHandler(builder.Services.BuildServiceProvider().GetRequiredService<IProductsMicroservicePolicies>().GetCombinedPolicy());
 
 var app = builder.Build();
