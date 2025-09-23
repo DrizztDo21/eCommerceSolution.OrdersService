@@ -36,4 +36,9 @@ ENV ProductsMicroServiceName=localhost
 ENV ProductsMicroServicePort=8080
 ENV REDIS_HOST=localhost
 ENV REDIS_PORT=6379
+ENV RABBITMQ_HOST=localhost
+ENV RABBITMQ_PORT=5672
+ENV RABBITMQ_USER=admin
+ENV RABBITMQ_PASSWORD=admin
+ENV RABBITMQ_PRODUCTS_EXCHANGE=product.exchange
 ENTRYPOINT ["dotnet", "OrdersMicroservice.API.dll"]
